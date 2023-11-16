@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
 
-    //Selenide Elements
     CalendarComponent calendar = new CalendarComponent();
     TableResultsComponent table = new TableResultsComponent();
     SelenideElement
@@ -22,17 +21,14 @@ public class RegistrationPage {
             dateOfBirthInput = $("#dateOfBirthInput"),
             userSubjectInput = $("#subjectsInput"),
             userSubjectSelect = $("#subjectsWrapper"),
-            userHobbiesInput = $($("#hobbiesWrapper").$(byText("Sports"))),
+            userHobbiesInput = $("#hobbiesWrapper"),
             userUploadPicture = $("#uploadPicture"),
             userAddressInput = $("#currentAddress"),
-            userOpenStateList = $("#stateCity-wrapper").$(byText("Select State")),
-            userSelectState = $("#stateCity-wrapper").$(byText("NCR")),
-            userOpenCityList = $("#stateCity-wrapper").$(byText("Select City")),
-            userSelectCity = $("#stateCity-wrapper"),
+            userStateInput = $("#state"),
+            userCityInput = $("#city"),
             userSubmitForm = $("#submit");
 
 
-    //Actions
     public RegistrationPage openPage() {
         open("https://demoqa.com/automation-practice-form");
 
@@ -46,32 +42,32 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setFirstName(String value) {
-        firstNameInput.setValue(value);
+    public RegistrationPage setFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
 
         return this;
     }
 
-    public RegistrationPage setLastName(String value) {
-        lastNameInput.setValue(value);
+    public RegistrationPage setLastName(String lastName) {
+        lastNameInput.setValue(lastName);
 
         return this;
     }
 
-    public RegistrationPage setEmail(String value) {
-        userEmailInput.setValue(value);
+    public RegistrationPage setEmail(String email) {
+        userEmailInput.setValue(email);
 
         return this;
     }
 
-    public RegistrationPage setGender(String value) {
-        genderWrapper.click();
+    public RegistrationPage setGender(String gender) {
+        genderWrapper.$(byText(gender)).click();
 
         return this;
     }
 
-    public RegistrationPage setNumber(String value) {
-        userNumberInput.setValue(value);
+    public RegistrationPage setPhoneNumber(String phoneNumber) {
+        userNumberInput.setValue(phoneNumber);
 
         return this;
     }
@@ -83,42 +79,42 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubject(String typeName, String selectName) {
-        userSubjectInput.setValue(typeName);
-        userSubjectSelect.$(byText(selectName)).click();
+    public RegistrationPage setSubject(String typeSubject, String selectSubject) {
+        userSubjectInput.setValue(typeSubject);
+        userSubjectSelect.$(byText(selectSubject)).click();
 
         return this;
     }
 
-    public RegistrationPage setHobbies(String value) {
-        userHobbiesInput.click();
+    public RegistrationPage setHobbies(String hobby) {
+        userHobbiesInput.$(byText(hobby)).click();
 
         return this;
     }
 
 
-    public RegistrationPage setPicture(String value) {
-        userUploadPicture.uploadFromClasspath(value);
+    public RegistrationPage setPicture(String img) {
+        userUploadPicture.uploadFromClasspath(img);
 
         return this;
     }
 
-    public RegistrationPage setAddress(String value) {
-        userAddressInput.setValue(value);
+    public RegistrationPage setHomeAddress(String homeAddress) {
+        userAddressInput.setValue(homeAddress);
 
         return this;
     }
 
-    public RegistrationPage setState(String value) {
-        userOpenStateList.click();
-        userSelectState.click();
+    public RegistrationPage setState(String state) {
+        userStateInput.click();
+        userStateInput.$(byText(state)).click();
 
         return this;
     }
 
     public RegistrationPage setCity(String city) {
-        userOpenCityList.click();
-        userSelectCity.$(byText(city)).click();
+        userCityInput.click();
+        userCityInput.$(byText(city)).click();
 
         return this;
     }
@@ -129,7 +125,7 @@ public class RegistrationPage {
         return this;
     }
 
-      public RegistrationPage checkResult(String key, String value) {
+    public RegistrationPage checkResult(String key, String value) {
         table.checkLineInTable(key, value);
 
         return this;

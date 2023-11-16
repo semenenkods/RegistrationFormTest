@@ -42,10 +42,11 @@ public class RegistrationFormTest {
         $("#uploadPicture").uploadFromClasspath("test_picture.jpg");
         $("#currentAddress").setValue("my current address");
 
-        $("#stateCity-wrapper").$(byText("Select State")).click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#stateCity-wrapper").$(byText("Select City")).click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
+
+        $("#state").click();
+        $("#state").$(byText("NCR")).click();
+        $("#city").click();
+        $("#city").$(byText("Delhi")).click();
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
