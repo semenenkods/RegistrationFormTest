@@ -6,10 +6,10 @@ import java.util.Locale;
 
 
 public class TestData {
-    static Faker faker = new Faker(new Locale("en-GB"));
+    Faker faker = new Faker(new Locale("en-GB"));
 
 
-    public static String
+    public String
 
             firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
