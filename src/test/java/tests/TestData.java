@@ -1,12 +1,14 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import utils.FakerUtils;
 
 import java.util.Locale;
 
 
 public class TestData {
     Faker faker = new Faker(new Locale("en-GB"));
+    FakerUtils fakerUtils = new FakerUtils();
 
 
     public String
@@ -14,17 +16,17 @@ public class TestData {
             firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             email = faker.internet().emailAddress(),
-            gender = utils.FakerUtils.getGender(),
+            gender = fakerUtils.getGender(),
             phoneNumber = faker.phoneNumber().subscriberNumber(10),
-            dayOfBirth = utils.FakerUtils.getDay(),
-            monthOfBirth = utils.FakerUtils.getMonth(),
-            yearOfBirth = utils.FakerUtils.getYear(),
-            subject = utils.FakerUtils.getSubject(),
-            hobbies = utils.FakerUtils.getHobbies(),
-            picture = utils.FakerUtils.getImg(),
+            dayOfBirth = fakerUtils.getDay(),
+            monthOfBirth = fakerUtils.getMonth(),
+            yearOfBirth = fakerUtils.getYear(),
+            subject = fakerUtils.getSubject(),
+            hobbies = fakerUtils.getHobbies(),
+            picture = fakerUtils.getImg(),
             streetAddress = faker.address().streetAddress(),
-            state = utils.FakerUtils.getState(),
-            city = utils.FakerUtils.getCity(state);
+            state = fakerUtils.getState(),
+            city = fakerUtils.getCity(state);
 
 
 }
